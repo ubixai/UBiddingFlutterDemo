@@ -1,0 +1,58 @@
+# UBidding Flutter baseline. The host supplies UBiddingAdSDK 4.1.2.13 through its configured Pod source.
+require_relative 'deployment_target'
+platform :ios, ExampleIosDeploymentTarget::VERSION
+
+# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+# Plugin tree uses the package helper. The exported app uses its own copy.
+plugin_sdk_config = File.expand_path('../../ios/sdk_config.rb', __dir__)
+local_sdk_config = File.expand_path('sdk_config.rb', __dir__)
+require File.exist?(plugin_sdk_config) ? plugin_sdk_config : local_sdk_config
+UbiddingSdkConfig.sources(self)
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
+  end
+
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    matches = line.match(/FLUTTER_ROOT\=(.*)/)
+    return matches[1].strip if matches
+  end
+  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+target 'Runner' do
+  UbiddingSdkConfig.local_sdk(self, ENV, __dir__)
+  # Host-selected adapters. Core requires UBiX adapter at link time in this SDK version.
+  pod 'UBiddingGdtAdapter', '4.16.11.1'
+  pod 'UBiddingKSAdapter', '5.9.10.1.1'
+  pod 'UBiddingBaiduAdapter', '10.060.2'
+  pod 'UBiddingGromoreAdapter', '7.8.0.7.1'
+  pod 'UBiddingQuMengAdapter', '1.9.4.0.1'
+  pod 'UBiddingFancyAdapter', '3.0.23.1'
+  pod 'UBiddingWangMaiAdapter', '8.0.0.1.0'
+  pod 'UBiddingJTAdapter', '4.5.5.1.2'
+  pod 'UBiddingUBiXAdapter', '2.12.1.1'
+  pod 'UBiddingAdProfAdapter', '2.1.8.2.2'
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+  end
+  ExampleIosDeploymentTarget.apply(installer)
+end

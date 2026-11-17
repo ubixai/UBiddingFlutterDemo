@@ -1,0 +1,25 @@
+def pluginSdkLibs = file('../../android/libs')
+def hostSdkLibs = pluginSdkLibs.isDirectory() ? pluginSdkLibs : file('sdk')
+if (!hasProperty('UBIDDING_ANDROID_SDK_DIR') &&
+        System.getenv('UBIDDING_ANDROID_SDK_DIR') == null) {
+    ext.UBIDDING_ANDROID_SDK_DIR = hostSdkLibs.absolutePath
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+tasks.register('clean', Delete) {
+    delete rootProject.buildDir
+}

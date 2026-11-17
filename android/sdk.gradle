@@ -1,0 +1,34 @@
+import java.security.MessageDigest
+
+// 宿主显式提供制品；插件编译引用、应用负责运行时打包。
+// Gradle 属性优先，环境变量用于本地/CI；相对路径基于宿主 Android 根目录。
+def sdkDirectory = project.findProperty('UBIDDING_ANDROID_SDK_DIR') ?:
+        System.getenv('UBIDDING_ANDROID_SDK_DIR')
+if (sdkDirectory == null || sdkDirectory.toString().trim().isEmpty()) {
+    throw new GradleException('sdk_directory_missing: Set UBIDDING_ANDROID_SDK_DIR in host gradle.properties or environment.')
+}
+def sdkRoot = rootProject.file(sdkDirectory.toString())
+if (!sdkRoot.isDirectory()) {
+    throw new GradleException('sdk_directory_invalid: UBIDDING_ANDROID_SDK_DIR must identify a readable directory.')
+}
+def sdkFile = new File(sdkRoot, 'UBidding.SDK_4.1.2.11.aar')
+if (!sdkFile.isFile()) {
+    throw new GradleException('sdk_missing: Place UBidding.SDK_4.1.2.11.aar in UBIDDING_ANDROID_SDK_DIR.')
+}
+def digest = MessageDigest.getInstance('SHA-256')
+try {
+    sdkFile.withInputStream { stream ->
+        byte[] buffer = new byte[65536]
+        int count
+        while ((count = stream.read(buffer)) != -1) {
+            digest.update(buffer, 0, count)
+        }
+    }
+} catch (IOException error) {
+    throw new GradleException('sdk_unreadable: Check host SDK file permissions.', error)
+}
+def actual = digest.digest().encodeHex().toString()
+if (actual != '6ed75c5a1fd28237f61a56b2a8216164cca6ac50e6517ed20565b3ff42af2451') {
+    throw new GradleException('sdk_checksum_mismatch: Supply the locked UBidding SDK 4.1.2.11 artifact.')
+}
+ext.ubiddingSdkFile = sdkFile

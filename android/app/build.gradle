@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.application'
+    id 'dev.flutter.flutter-gradle-plugin'
+}
+
+// Plugin tree uses the package script. The exported app uses its own copy.
+def bundledSdkGradle = file('../../../android/sdk.gradle')
+def localSdkGradle = file('../sdk.gradle')
+apply from: bundledSdkGradle.exists() ? bundledSdkGradle : localSdkGradle
+
+android {
+    namespace 'com.ubix.ubidding_flutter_example'
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    defaultConfig {
+        applicationId 'com.ubidding.android'
+        minSdkVersion 24
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutter.versionCode
+        versionName flutter.versionName
+        // Native integration runner is also usable when device logcat discovery is unavailable.
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+    buildTypes {
+        release {
+            // 仅用于本地示例验收；正式宿主使用自己的发布签名。
+            signingConfig signingConfigs.debug
+            proguardFiles 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+// 三方广告 AAR 与 Adapter 放在示例宿主 libs，不进入插件目录。
+def adnDirectory = rootProject.file('libs')
+
+dependencies {
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    // 核心 SDK 只打包这一份；三方广告由宿主 libs 引入。
+    implementation files(ubiddingSdkFile)
+    implementation fileTree(dir: adnDirectory, include: ['**/*.aar'])
+    // 本地 AAR 不携带 Maven 传递依赖；按广告源 Demo 补充宿主依赖。
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.github.zjupure:webpdecoder:2.6.4.16.0'
+    implementation 'androidx.room:room-runtime:2.2.6'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.percentlayout:percentlayout:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+}

@@ -1,0 +1,13 @@
+require_relative '../deployment_target'
+platform :ios, ExampleIosDeploymentTarget::VERSION
+
+# 插件 XCTest 独立 harness：经 podspec BridgeTests test spec 集成原生用例。
+# Core 继承插件 podspec，UBiX Adapter 仅继承 BridgeTests test spec。模拟器使用 arm64。
+target 'BridgeTests' do
+  pod 'ubidding_flutter', :path => '../../../ios', :testspecs => ['BridgeTests']
+end
+
+post_install do |installer|
+  installer.pods_project.root_object.attributes['LastUpgradeCheck'] = '2600'
+  ExampleIosDeploymentTarget.apply(installer)
+end

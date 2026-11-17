@@ -1,0 +1,177 @@
+PODS:
+  - AdProfSDK (2.1.8.2)
+  - Ads-CN-Beta/BUAdLive (7.8.0.7)
+  - Ads-CN-Beta/BUAdLive-Framework (7.8.0.7):
+    - Ads-CN-Beta/BUAdLive
+    - BUTTSDKFramework/LivePull-Lite (= 1.48.2.3-premium)
+  - Ads-CN-Beta/BUAdSDK (7.8.0.7)
+  - Ads-CN-Beta/CSJMediation (7.8.0.7):
+    - Ads-CN-Beta/BUAdLive-Framework
+    - Ads-CN-Beta/CSJMediation-Only
+  - Ads-CN-Beta/CSJMediation-Only (7.8.0.7):
+    - Ads-CN-Beta/BUAdSDK
+  - BaiduMobAdSDK (10.060)
+  - BLKDeviceTool (1.0.1)
+  - BUTTSDKFramework/Core (1.48.2.3-premium)
+  - BUTTSDKFramework/LiveBase (1.48.2.3-premium):
+    - BUTTSDKFramework/Core
+    - BUTTSDKFramework/Reachability
+  - BUTTSDKFramework/LivePlayer/Base (1.48.2.3-premium):
+    - BUTTSDKFramework/Core
+    - BUTTSDKFramework/LiveBase
+    - BUTTSDKFramework/LivePull-VolcLog
+    - BUTTSDKFramework/Reachability
+  - BUTTSDKFramework/LivePlayer/Lite (1.48.2.3-premium):
+    - BUTTSDKFramework/LivePlayer/Base
+    - BUTTSDKFramework/PlayerCore/LiveLite
+  - BUTTSDKFramework/LivePull-Lite (1.48.2.3-premium):
+    - BUTTSDKFramework/LivePlayer/Lite
+    - BUTTSDKFramework/Strategy/Lite
+  - BUTTSDKFramework/LivePull-VolcLog (1.48.2.3-premium):
+    - BUTTSDKFramework/VolcLog
+  - BUTTSDKFramework/PlayerCore/Base (1.48.2.3-premium):
+    - BUTTSDKFramework/Core
+  - BUTTSDKFramework/PlayerCore/LiveLite (1.48.2.3-premium):
+    - BUTTSDKFramework/PlayerCore/Base
+    - BUTTSDKFramework/TTFFmpeg/LiveLite
+  - BUTTSDKFramework/Reachability (1.48.2.3-premium)
+  - BUTTSDKFramework/Strategy/Core (1.48.2.3-premium):
+    - BUTTSDKFramework/LiveBase
+    - BUTTSDKFramework/Reachability
+  - BUTTSDKFramework/Strategy/Lite (1.48.2.3-premium):
+    - BUTTSDKFramework/LivePlayer/Lite
+    - BUTTSDKFramework/Strategy/Core
+  - BUTTSDKFramework/TTFFmpeg/LiveLite (1.48.2.3-premium)
+  - BUTTSDKFramework/VolcLog (1.48.2.3-premium)
+  - Flutter (1.0.0)
+  - GDTMobSDK (4.16.11)
+  - integration_test (0.0.1):
+    - Flutter
+  - JTAdSDK (4.5.5.1)
+  - KSAdSDK (5.9.10.1)
+  - PTGAdFramework (3.0.23)
+  - QuMengAdSDK (1.9.4.0)
+  - ubidding_flutter (4.2.0):
+    - Flutter
+    - UBiddingAdSDK (= 4.1.2.13)
+  - UBiddingAdProfAdapter (2.1.8.2.2):
+    - AdProfSDK (= 2.1.8.2)
+    - BLKDeviceTool (= 1.0.1)
+    - UBiddingAdSDK
+  - UBiddingAdSDK (4.1.2.13):
+    - UBiXDaq
+  - UBiddingBaiduAdapter (10.060.2):
+    - BaiduMobAdSDK (= 10.060)
+    - UBiddingAdSDK
+  - UBiddingFancyAdapter (3.0.23.1):
+    - PTGAdFramework (= 3.0.23)
+    - UBiddingAdSDK
+  - UBiddingGdtAdapter (4.16.11.1):
+    - GDTMobSDK (= 4.16.11)
+    - UBiddingAdSDK
+  - UBiddingGromoreAdapter (7.8.0.7.1):
+    - Ads-CN-Beta/BUAdSDK (= 7.8.0.7)
+    - Ads-CN-Beta/CSJMediation (= 7.8.0.7)
+    - UBiddingAdSDK
+  - UBiddingJTAdapter (4.5.5.1.2):
+    - JTAdSDK (= 4.5.5.1)
+    - UBiddingAdSDK
+  - UBiddingKSAdapter (5.9.10.1.1):
+    - KSAdSDK (= 5.9.10.1)
+    - UBiddingAdSDK
+  - UBiddingQuMengAdapter (1.9.4.0.1):
+    - QuMengAdSDK (= 1.9.4.0)
+    - UBiddingAdSDK
+  - UBiddingUBiXAdapter (2.12.1.1):
+    - UBiddingAdSDK
+    - UBiXMerakSDK (= 2.12.1)
+  - UBiddingWangMaiAdapter (8.0.0.1.0):
+    - UBiddingAdSDK
+    - UBiXAdWangMaiSDK (= 8.0.0.1.0)
+  - UBiXAdWangMaiSDK (8.0.0.1.0)
+  - UBiXDaq (2.8.1)
+  - UBiXMerakSDK (2.12.1):
+    - UBiXDaq (~> 2.8.1)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - ubidding_flutter (from `.symlinks/plugins/ubidding_flutter/ios`)
+  - UBiddingAdProfAdapter (= 2.1.8.2.2)
+  - UBiddingBaiduAdapter (= 10.060.2)
+  - UBiddingFancyAdapter (= 3.0.23.1)
+  - UBiddingGdtAdapter (= 4.16.11.1)
+  - UBiddingGromoreAdapter (= 7.8.0.7.1)
+  - UBiddingJTAdapter (= 4.5.5.1.2)
+  - UBiddingKSAdapter (= 5.9.10.1.1)
+  - UBiddingQuMengAdapter (= 1.9.4.0.1)
+  - UBiddingUBiXAdapter (= 2.12.1.1)
+  - UBiddingWangMaiAdapter (= 8.0.0.1.0)
+
+SPEC REPOS:
+  trunk:
+    - AdProfSDK
+    - Ads-CN-Beta
+    - BaiduMobAdSDK
+    - BLKDeviceTool
+    - BUTTSDKFramework
+    - GDTMobSDK
+    - JTAdSDK
+    - KSAdSDK
+    - PTGAdFramework
+    - QuMengAdSDK
+    - UBiddingAdProfAdapter
+    - UBiddingAdSDK
+    - UBiddingBaiduAdapter
+    - UBiddingFancyAdapter
+    - UBiddingGdtAdapter
+    - UBiddingGromoreAdapter
+    - UBiddingJTAdapter
+    - UBiddingKSAdapter
+    - UBiddingQuMengAdapter
+    - UBiddingUBiXAdapter
+    - UBiddingWangMaiAdapter
+    - UBiXAdWangMaiSDK
+    - UBiXDaq
+    - UBiXMerakSDK
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  ubidding_flutter:
+    :path: ".symlinks/plugins/ubidding_flutter/ios"
+
+SPEC CHECKSUMS:
+  AdProfSDK: 33a4034302b04f39c242112ab9889a70b800a1c2
+  Ads-CN-Beta: 60a07e091cff31fdd7fb6be47676d6ac7bc7397d
+  BaiduMobAdSDK: b6df346e71e5c35ab3c7535d3a99891087ed2434
+  BLKDeviceTool: 9fa26656e193015223738e2f7b83b0e5e4eeb690
+  BUTTSDKFramework: 34f8f8d541da07e79e9c479eb71336d1e4d90fdd
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  GDTMobSDK: ee17c920be9db5a7fcdfd7612a859beb0f744d0d
+  integration_test: 4a889634ef21a45d28d50d622cf412dc6d9f586e
+  JTAdSDK: d120adf0804a3df39e17efa7417d8ef65a0aa6dc
+  KSAdSDK: 9f7889f13a5a44162512a379503dff989e0302e6
+  PTGAdFramework: 8f348dd2cdc4f102022d13f17d013ea58f7258f5
+  QuMengAdSDK: eba23f0d76f27f14c80e9982dd1c80b58baf6dec
+  ubidding_flutter: d6e90d0d9c2ce8ca0a5a2bc410298f285ca07fdc
+  UBiddingAdProfAdapter: f858e3b00b6ce7666f2f85e82c20136ba97b3b63
+  UBiddingAdSDK: dd947fb279041a546b43d91f709af7d68efab518
+  UBiddingBaiduAdapter: b3ce9f3a519eaa44e4bf84b876815f69c84b5438
+  UBiddingFancyAdapter: a18575826f614408f7ffe09f3c08d14c93cd96b4
+  UBiddingGdtAdapter: 58b348f1f61f7484c011b238991ad479c72b5510
+  UBiddingGromoreAdapter: 1bd04e24e1310f22d4e0ae37db4696f460b2f831
+  UBiddingJTAdapter: 7877777314ae791b30f16e36cc650ee5c03d423c
+  UBiddingKSAdapter: dc5a42dc8d477854ee1a5a68fa4cf0bff55a0e12
+  UBiddingQuMengAdapter: b7fa387bb5862d5ec0b5a3ecf3fe69c66f3f2fa1
+  UBiddingUBiXAdapter: 4e9209fe8da303664645b53098a75c05d2fb9e91
+  UBiddingWangMaiAdapter: 920ba11faac4ab7494f947b3d8e1320702f9d804
+  UBiXAdWangMaiSDK: 1fed0d3f630e3b3bf2666b7732fd2916e5fb5495
+  UBiXDaq: 437b1beac8b7fed0a639e77ba0fae7adc9390285
+  UBiXMerakSDK: a571927268cc489d76fdc17dd84cb90d8da666a1
+
+PODFILE CHECKSUM: 9166336b8b5c54e558d01805ca4c2a0a80f6199b
+
+COCOAPODS: 1.16.2
