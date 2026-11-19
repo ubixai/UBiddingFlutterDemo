@@ -243,10 +243,10 @@ packages:
     dependency: "direct main"
     description:
       name: ubidding_flutter
-      sha256: b0ff47512af6f985338eeb6dfca8565d3b85ee6834386060c6a2e33bf739ccb8
+      sha256: "322c657a22c1c6d3fcb051391244d3618130abe18dd8615fb3e62287b9dfef9d"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.0"
+    version: "4.2.3"
   vector_math:
     dependency: transitive
     description:

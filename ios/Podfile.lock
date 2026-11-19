@@ -51,7 +51,7 @@ PODS:
   - KSAdSDK (5.9.10.1)
   - PTGAdFramework (3.0.23)
   - QuMengAdSDK (1.9.4.0)
-  - ubidding_flutter (4.2.0):
+  - ubidding_flutter (4.2.3):
     - Flutter
     - UBiddingAdSDK (= 4.1.2.13)
   - UBiddingAdProfAdapter (2.1.8.2.2):
@@ -156,7 +156,7 @@ SPEC CHECKSUMS:
   KSAdSDK: 9f7889f13a5a44162512a379503dff989e0302e6
   PTGAdFramework: 8f348dd2cdc4f102022d13f17d013ea58f7258f5
   QuMengAdSDK: eba23f0d76f27f14c80e9982dd1c80b58baf6dec
-  ubidding_flutter: d6e90d0d9c2ce8ca0a5a2bc410298f285ca07fdc
+  ubidding_flutter: fb8fe4b8883ff719900e8e40e381edd3b0f42ef3
   UBiddingAdProfAdapter: f858e3b00b6ce7666f2f85e82c20136ba97b3b63
   UBiddingAdSDK: dd947fb279041a546b43d91f709af7d68efab518
   UBiddingBaiduAdapter: b3ce9f3a519eaa44e4bf84b876815f69c84b5438
@@ -172,6 +172,6 @@ SPEC CHECKSUMS:
   UBiXDaq: 437b1beac8b7fed0a639e77ba0fae7adc9390285
   UBiXMerakSDK: a571927268cc489d76fdc17dd84cb90d8da666a1
 
-PODFILE CHECKSUM: 9166336b8b5c54e558d01805ca4c2a0a80f6199b
+PODFILE CHECKSUM: 65e66aabea5ffad454402cc921c7a8bd0c0e128a
 
 COCOAPODS: 1.16.2
