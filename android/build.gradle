@@ -1,8 +1,21 @@
-def pluginSdkLibs = file('../../android/libs')
-def hostSdkLibs = pluginSdkLibs.isDirectory() ? pluginSdkLibs : file('sdk')
+// Paths are relative to the Android root. Plugin checkouts keep the core
+// AAR in the package android/libs. Developers of the exported app do not
+// have that tree; they place the AAR in android/sdk.
+def sdkCandidates = [
+    '../../android/libs',
+    'sdk',
+]
+def selectedSdkDir = sdkCandidates.find { candidate ->
+    rootProject.file(candidate).isDirectory()
+}
 if (!hasProperty('UBIDDING_ANDROID_SDK_DIR') &&
         System.getenv('UBIDDING_ANDROID_SDK_DIR') == null) {
-    ext.UBIDDING_ANDROID_SDK_DIR = hostSdkLibs.absolutePath
+    if (selectedSdkDir == null) {
+        throw new GradleException(
+            '将 UBidding.SDK_4.1.2.11.aar 放到 android/sdk/ ' +
+            '（相对本工程的 android 目录）。')
+    }
+    ext.UBIDDING_ANDROID_SDK_DIR = selectedSdkDir
 }
 
 allprojects {

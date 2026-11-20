@@ -2,8 +2,10 @@
 
 Demonstrates how to use the ubidding_flutter plugin.
 
-公开导出的示例从 pub.dev 依赖 `ubidding_flutter`。Android 核心 AAR 放到
-`android/sdk/`，iOS 用环境变量 `UBIDDING_POD_SOURCE` 指定 Pod 源。插件仓库内另有
+公开导出的示例从 pub.dev 依赖 `ubidding_flutter`。请把
+`UBidding.SDK_4.1.2.11.aar` 放到 `android/sdk/`，
+`广告源+适配器.aar` 放到 `android/lib/`，（相对本工程的 android 目录）。
+iOS 用环境变量 `UBIDDING_POD_SOURCE` 指定 Pod 源。插件仓库内另有
 `pubspec_overrides.yaml` 指向本地插件，导出时不包含该文件。
 
 ## Getting Started

@@ -14,7 +14,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('UBidding · 启动'), findsOneWidget);
       expect(find.text('同意并初始化'), findsOneWidget);
-      expect(UBidding.pluginVersion, '4.2.0');
+      expect(UBidding.pluginVersion, '4.2.3');
       expect(
         await UBidding.sdkVersion,
         defaultTargetPlatform == TargetPlatform.iOS ? '4.1.2.13' : '4.1.2.11',

@@ -7,9 +7,14 @@ def sdkDirectory = project.findProperty('UBIDDING_ANDROID_SDK_DIR') ?:
 if (sdkDirectory == null || sdkDirectory.toString().trim().isEmpty()) {
     throw new GradleException('sdk_directory_missing: Set UBIDDING_ANDROID_SDK_DIR in host gradle.properties or environment.')
 }
-def sdkRoot = rootProject.file(sdkDirectory.toString())
+def sdkPath = sdkDirectory.toString().trim()
+def sdkRoot = new File(sdkPath)
+if (!sdkRoot.isAbsolute()) {
+    sdkRoot = rootProject.file(sdkPath)
+}
 if (!sdkRoot.isDirectory()) {
-    throw new GradleException('sdk_directory_invalid: UBIDDING_ANDROID_SDK_DIR must identify a readable directory.')
+    throw new GradleException(
+        "sdk_directory_invalid: UBIDDING_ANDROID_SDK_DIR is not a readable directory: ${sdkRoot}")
 }
 def sdkFile = new File(sdkRoot, 'UBidding.SDK_4.1.2.11.aar')
 if (!sdkFile.isFile()) {
